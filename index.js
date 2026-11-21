@@ -15,39 +15,68 @@ const messageWhere = document.getElementById("messageWhere")
 const messageSelect = document.getElementById("messageSelect")
 const messageAdd = document.getElementById("messageAdd")
 const ticketList = document.getElementById("ticketList")
+const showHint = document.getElementById("showHint")
 
 
 function cleanTickedList() {
     ticketList.innerHTML = ""
 
-    tickets.forEach((tick, index) => {
-        const item = document.createElement("li")
-        if (tick.done) {
-            item.textContent = `${tick.title} · ${tick.room} · ${tick.category} · Выполнено`
-        } else {
-            item.textContent = `${tick.title} · ${tick.room} · ${tick.category} · Открыта`
-            const add = document.createElement('button');
-            add.textContent = "Выполнить";
-            item.append(add);
+    if (showHint.checked) {
+        tickets.forEach((tick, index) => {
+            const item = document.createElement("li")
+            if (tick.done === false) {
+                item.textContent = `${tick.title} · ${tick.room} · ${tick.category} · Открыта`
+                const add = document.createElement('button');
+                add.textContent = "Выполнить";
+                item.append(add);
+                add.addEventListener('click', () => {
+                    tick.done = true
+                    cleanTickedList()
+                })
 
-            add.addEventListener('click', () => {
-                tick.done = true
+                const delet = document.createElement('button');
+                delet.textContent = "Удалить";
+
+                item.append(delet);
+                ticketList.append(item)
+
+                delet.addEventListener('click', () => {
+                    tickets.splice(index, 1)
+                    cleanTickedList()
+                })
+            }
+        })
+    } else {
+        tickets.forEach((tick, index) => {
+            const item = document.createElement("li")
+            if (tick.done) {
+                item.textContent = `${tick.title} · ${tick.room} · ${tick.category} · Выполнено`
+            } else {
+                item.textContent = `${tick.title} · ${tick.room} · ${tick.category} · Открыта`
+                const add = document.createElement('button');
+                add.textContent = "Выполнить";
+                item.append(add);
+
+                add.addEventListener('click', () => {
+                    tick.done = true
+                    cleanTickedList()
+                })
+            }
+            const delet = document.createElement('button');
+            delet.textContent = "Удалить";
+
+            item.append(delet);
+            ticketList.append(item)
+
+            delet.addEventListener('click', () => {
+                tickets.splice(index, 1)
                 cleanTickedList()
             })
-        }
-        const delet = document.createElement('button');
-        delet.textContent = "Удалить";
-
-        item.append(delet);
-        ticketList.append(item)
-
-        delet.addEventListener('click', () => {
-            tickets.splice(index, 1)
-            cleanTickedList()
         })
-    })
+    }
 }
 cleanTickedList()
+showHint.addEventListener('change', cleanTickedList)
 
 addTicket.addEventListener('click', () => {
     const caseInValue = caseIn.value.trim()
