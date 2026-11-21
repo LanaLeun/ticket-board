@@ -21,6 +21,20 @@ const showHint = document.getElementById("showHint")
 function cleanTickedList() {
     ticketList.innerHTML = ""
 
+    if (tickets.length === 0) {
+        const item = document.createElement("li")
+        item.textContent = "Заявок пока нет"
+        ticketList.append(item)
+        return
+    }
+
+    if (showHint.checked && !tickets.some(t => !t.done)) {
+        const item = document.createElement("li")
+        item.textContent = "Открытых заявок нет"
+        ticketList.append(item)
+        return
+    }
+
     if (showHint.checked) {
         tickets.forEach((tick, index) => {
             const item = document.createElement("li")
