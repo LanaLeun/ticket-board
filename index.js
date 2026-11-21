@@ -20,14 +20,31 @@ const ticketList = document.getElementById("ticketList")
 function cleanTickedList() {
     ticketList.innerHTML = ""
 
-    tickets.forEach((tick) => {
+    tickets.forEach((tick, index) => {
         const item = document.createElement("li")
-        if (tickets.done) {
+        if (tick.done) {
             item.textContent = `${tick.title} · ${tick.room} · ${tick.category} · Выполнено`
         } else {
             item.textContent = `${tick.title} · ${tick.room} · ${tick.category} · Открыта`
+            const add = document.createElement('button');
+            add.textContent = "Выполнить";
+            item.append(add);
+
+            add.addEventListener('click', () => {
+                tick.done = true
+                cleanTickedList()
+            })
         }
+        const delet = document.createElement('button');
+        delet.textContent = "Удалить";
+
+        item.append(delet);
         ticketList.append(item)
+
+        delet.addEventListener('click', () => {
+            tickets.splice(index, 1)
+            cleanTickedList()
+        })
     })
 }
 cleanTickedList()
@@ -55,5 +72,4 @@ addTicket.addEventListener('click', () => {
         categoryList.value = ""
         cleanTickedList()
     }
-
 })
