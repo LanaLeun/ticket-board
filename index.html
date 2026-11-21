@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="index.js"></script>
 </head>
+
 <body>
     <h1>Заявки корпуса</h1>
-    <lebel for = "">Что случилось?</lebel>
-    <input id = "" type="text">
-    <label for = "">Где?</label>
-    <input id = "" type="text">
-    <label for = "">Игра</label>
-    <select id = "">
+    <lebel for="case">Что случилось?</lebel>
+    <input id="case" type="text">
+    <p id = "messageCase"></p>
+    <label for="where">Где?</label>
+    <input id="where" type="text">
+    <p id = "messageWhere"></p>
+    <select id="category">
         <option value="">Выберите категорию</option>
         <option value="0">Оборудование</option>
         <option value="1">Аудитория</option>
         <option value="2">Другое</option>
     </select>
-
+    <p id = "messageSelect"></p>
+    <button id="addTicket">Добавить заявку</button>
+    <p id = "messageAdd"></p>
 </body>
+
 </html>
