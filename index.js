@@ -1,8 +1,8 @@
 
 const tickets = [
-    {title: "Проектор не включается", room: "203", category: "Оборудование", done: false},
-    {title: "Не закрывается окно", room: "105", category: "Аудитория", done: false},
-    {title: "В коридоре не горит свет", room: "Коридор, 2-й этаж", category: "Другое", done: true}
+    { title: "Проектор не включается", room: "203", category: "Оборудование", done: false },
+    { title: "Не закрывается окно", room: "105", category: "Аудитория", done: false },
+    { title: "В коридоре не горит свет", room: "Коридор, 2-й этаж", category: "Другое", done: true }
 ]
 
 
@@ -10,19 +10,19 @@ const caseIn = document.getElementById("caseIn")
 const where = document.getElementById("where")
 const categoryList = document.getElementById("categoryList")
 const addTicket = document.getElementById("addTicket")
-const massageCase = document.getElementById("massageCase")
-const massageWhere = document.getElementById("massageWhere")
-const massageSelect = document.getElementById("massageSelect")
-const massageAdd = document.getElementById("massageAdd")
+const messageCase = document.getElementById("messageCase")
+const messageWhere = document.getElementById("messageWhere")
+const messageSelect = document.getElementById("messageSelect")
+const messageAdd = document.getElementById("messageAdd")
 const ticketList = document.getElementById("ticketList")
 
 
-function cleanTickedList(){
+function cleanTickedList() {
     ticketList.innerHTML = ""
 
     tickets.forEach((tick) => {
         const item = document.createElement("li")
-        if (tickets.done){
+        if (tickets.done) {
             item.textContent = `${tick.title} · ${tick.room} · ${tick.category} · Выполнено`
         } else {
             item.textContent = `${tick.title} · ${tick.room} · ${tick.category} · Открыта`
@@ -31,3 +31,29 @@ function cleanTickedList(){
     })
 }
 cleanTickedList()
+
+addTicket.addEventListener('click', () => {
+    const caseInValue = caseIn.value.trim()
+    const whereValue = where.value.trim()
+    const categoryListValue = categoryList.value.trim()
+
+    if (caseInValue === "" && whereValue === "" && categoryListValue === "") {
+        messageAdd.textContent = "Введите данные"
+        return
+    } if (caseInValue === "") {
+        messageCase.textContent = "Введите проблему"
+    } if (whereValue === "") {
+        messageWhere.textContent = "Введите место"
+    } if (categoryListValue === "") {
+        messageSelect.textContent = "Выберите категорию"
+    } else {
+
+        const newTick = { title: caseInValue, room: whereValue, category: categoryListValue, done: false }
+        tickets.push(newTick)
+        caseIn.value = ""
+        where.value = ""
+        categoryList.value = ""
+        cleanTickedList()
+    }
+
+})
