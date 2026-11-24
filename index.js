@@ -96,6 +96,10 @@ addTicket.addEventListener('click', () => {
     const caseInValue = caseIn.value.trim()
     const whereValue = where.value.trim()
     const categoryListValue = categoryList.value.trim()
+    messageAdd.textContent = ""
+    messageCase.textContent = ""
+    messageWhere.textContent = ""
+    messageSelect.textContent = ""
 
     if (caseInValue === "" && whereValue === "" && categoryListValue === "") {
         messageAdd.textContent = "Введите данные"
