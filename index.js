@@ -73,7 +73,7 @@ function cleanTickedList() {
                 const complet = document.createElement('button');
                 complet.textContent = "Выполнить";
                 complet.className = "completStyle"
-                
+
                 item.append(complet);
 
                 complet.addEventListener('click', () => {
@@ -107,22 +107,18 @@ addTicket.addEventListener('click', () => {
     messageWhere.textContent = ""
     messageSelect.textContent = ""
 
-    if (caseInValue === "" && whereValue === "" && categoryListValue === "") {
-        messageAdd.textContent = "Введите данные"
-        return
-    } if (caseInValue === "") {
-        messageCase.textContent = "Введите проблему"
-    } if (whereValue === "") {
-        messageWhere.textContent = "Введите место"
-    } if (categoryListValue === "") {
-        messageSelect.textContent = "Выберите категорию"
-    } else {
-
+    if (caseInValue !== "" && whereValue !== "" && categoryListValue !== "") {
         const newTick = { title: caseInValue, room: whereValue, category: categoryListValue, done: false }
         tickets.push(newTick)
         caseIn.value = ""
         where.value = ""
         categoryList.value = ""
         cleanTickedList()
-    }
+    } if (caseInValue === "") {
+        messageCase.textContent = "Введите проблему"
+    } if (whereValue === "") {
+        messageWhere.textContent = "Введите место"
+    } if (categoryListValue === "") {
+        messageSelect.textContent = "Выберите категорию"
+    } 
 })
