@@ -1,4 +1,110 @@
-body{
+html {
+    display: flex;
+    justify-content: center;
+    background-color: #f5ead8;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
     width: 700px;
-    height: 305px;
+    height: auto;
+    background-color: white;
+    padding: 20px;
+    margin: 100px 0px 0px 0px;
+}
+#caseIn, #where, #categoryList, #addTicket {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border: 1px solid #D8CFC0;
+    border-radius: 8px;
+    font-size: 15px;
+}
+label {
+    font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+li {
+    margin: 10px 0px 0px 0px;
+}
+
+h1 {
+    margin: 10px 0px 20px 0px;
+    display: flex;
+    font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    font-weight: bold;
+
+    font-size: 40px;
+}
+
+select {
+    border-radius: 5px;
+    font-size: 15px;
+    border-width: 1px;
+    border-color: rgb(50, 53, 51);
+}
+
+input {
+    border-radius: 5px;
+    font-size: 20px;
+    border-width: 1px;
+    border-color: rgb(50, 53, 51);
+}
+
+.application {
+    background-color: #f5ead8;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.deletStyle {
+    margin: 0px 0px 0px 20px;
+    width: 100px;
+    height: 25px;
+    color: rgb(168, 52, 52);
+    font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    border-width: 1px;
+    border-color: rgb(168, 52, 52)
+}
+
+.completStyle {
+    margin: 0px 0px 0px 20px;
+    width: 100px;
+    height: 25px;
+    color: rgb(13, 106, 168);
+    font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    border-width: 1px;
+    border-color: rgb(13, 106, 168)
+}
+
+.addButton {
+    width: 150px;
+    height: 45px;
+    color: rgb(255, 255, 255);
+    font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 8px;
+    background-color: rgb(52, 107, 76);
+    border-width: 1px;
+    border-color: rgb(19, 73, 42);
+}
+#messageCase, #messageWhere, #messageSelect, #messageAdd {
+    color: #D93025;
+    font-size: 14px;
+    min-height: 18px;
+    margin: 0;
 }

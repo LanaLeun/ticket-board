@@ -6,30 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="index.js" defer></script>
-    <link rel="styleheet" href="index.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <h1>Заявки корпуса</h1>
-    <input type="checkbox" id="showHint">
-    <label for="showHint">Только открытые</label>
-    <ul id = "ticketList"></ul>
-    <lebel for="caseIn">Что случилось?</lebel>
-    <input id="caseIn" type="text">
-    <p id = "messageCase"></p>
-    <label for="where">Где?</label>
-    <input id="where" type="text">
-    <p id = "messageWhere"></p>
-    <select id="categoryList">
-        <option value="">Выберите категорию</option>
-        <option value="Оборудование">Оборудование</option>
-        <option value="Аудитория">Аудитория</option>
-        <option value="Другое">Другое</option>
-    </select>
-    <p id = "messageSelect"></p>
-    <button id="addTicket">Добавить заявку</button>
-    <p id = "messageAdd"></p>
+    <div class="choice">
+        <input type="checkbox" id="showHint">
+        <label for="showHint">Только открытые</label>
+    </div>
 
+    <ul id="ticketList"></ul>
+    <div class="application">
+        <label for="caseIn">Что случилось?</label>
+        <input id="caseIn" type="text">
+        <p id="messageCase"></p>
+        <label for="where">Где?</label>
+        <input id="where" type="text">
+        <p id="messageWhere"></p>
+        <select id="categoryList">
+            <option value="">Выберите категорию</option>
+            <option value="Оборудование">Оборудование</option>
+            <option value="Аудитория">Аудитория</option>
+            <option value="Другое">Другое</option>
+        </select>
+        <p id="messageSelect"></p>
+        <button  class="addButton" id="addTicket">Добавить заявку</button>
+        <p id="messageAdd"></p>
+    </div>
 </body>
 
 </html>

@@ -40,16 +40,19 @@ function cleanTickedList() {
             const item = document.createElement("li")
             if (tick.done === false) {
                 item.textContent = `${tick.title} · ${tick.room} · ${tick.category} · Открыта`
-                const add = document.createElement('button');
-                add.textContent = "Выполнить";
-                item.append(add);
-                add.addEventListener('click', () => {
+                const complet = document.createElement('button');
+                complet.textContent = "Выполнить";
+                complet.className = "completStyle"
+
+                item.append(complet);
+                complet.addEventListener('click', () => {
                     tick.done = true
                     cleanTickedList()
                 })
 
                 const delet = document.createElement('button');
                 delet.textContent = "Удалить";
+                delet.className = "deletStyle"
 
                 item.append(delet);
                 ticketList.append(item)
@@ -67,17 +70,20 @@ function cleanTickedList() {
                 item.textContent = `${tick.title} · ${tick.room} · ${tick.category} · Выполнено`
             } else {
                 item.textContent = `${tick.title} · ${tick.room} · ${tick.category} · Открыта`
-                const add = document.createElement('button');
-                add.textContent = "Выполнить";
-                item.append(add);
+                const complet = document.createElement('button');
+                complet.textContent = "Выполнить";
+                complet.className = "completStyle"
+                
+                item.append(complet);
 
-                add.addEventListener('click', () => {
+                complet.addEventListener('click', () => {
                     tick.done = true
                     cleanTickedList()
                 })
             }
             const delet = document.createElement('button');
             delet.textContent = "Удалить";
+            delet.className = "deletStyle"
 
             item.append(delet);
             ticketList.append(item)
