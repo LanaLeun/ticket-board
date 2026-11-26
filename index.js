@@ -17,10 +17,11 @@ const messageAdd = document.getElementById("messageAdd")
 const ticketList = document.getElementById("ticketList")
 const showHint = document.getElementById("showHint")
 const showHiiint = document.getElementById("showHiiint")
-const categoryListUp = document.getElementById("categoryListUp")
 
 function cleanTickedList() {
     ticketList.innerHTML = ""
+
+    
 
     if (tickets.length === 0) {
         const item = document.createElement("li")
@@ -31,8 +32,8 @@ function cleanTickedList() {
     if (showHint.checked && showHiiint.checked) {
         alert("Ошибка!")
         return
-    } 
-    if (showHint.checked) { 
+    }
+    if (showHint.checked) {
         tickets.forEach((tick, index) => {
             const item = document.createElement("li")
             if (tick.done === false) {
